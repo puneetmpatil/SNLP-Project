@@ -1,0 +1,16 @@
+[
+    {
+        "key": 1,
+        "src": "https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dXJsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "alt": "Meeting room",
+        "title": "Our mission",
+        "description": "As technology disrupts all established norms - bringing complexity and uncertainty, alongside new opportunities to improve the world - our mission is to help businesses harness technological change to successfully deliver innovation. We help our clients gain a competitive advantage and improve the lives of people around the globe. "
+    },
+    {
+        "key": 2,
+        "src": "https://media.istockphoto.com/id/1398462038/photo/online-exam-or-test.jpg?b=1&s=170667a&w=0&k=20&c=rPmfkbaVJ5zY_WcFe5TV9LfLGaamTIW6F-YGrC1jzmc=",
+        "alt": "",
+        "title": "Our Story",
+        "description": "As technology disrupts all established norms - bringing complexity and uncertainty, alongside new opportunities to improve the world - our mission is to help businesses harness innovation to successfully deliver innovation."
+    }
+]
