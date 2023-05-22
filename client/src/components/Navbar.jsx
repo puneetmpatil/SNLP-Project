@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { FiMenu } from "react-icons/fi";
 import { close, logo } from '../assets';
 import { Link, useNavigate } from "react-router-dom";
 

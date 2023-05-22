@@ -10,7 +10,7 @@ function App() {
   return (
 
     <Routes>
-      {/* //   <Route exact path="/" element={<Home title="Home" />} /> */}
+      <Route exact path="/" element={<Home title="Home" />} />
       <Route exact path="/signin" element={<SignIn title="Log in" />} />
       <Route exact path="/signup" element={<SignUp title="Sign Up" />} />
       {/* //   <Route exact path="/contact" element={<ContactUs title="Contact Us" />} /> */}
