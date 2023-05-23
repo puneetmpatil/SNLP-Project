@@ -1,12 +1,23 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 function SignUp(props) {
 
+    const [user, setUser] = useState({ "name": "", "email": "", "password": "", "cpassword": "" })
     useEffect(() => {
         document.title = props.title
     }, [])
-    
+
+
+    const handleChange = (e) => {
+        setUser({ ...user, [e.target.name]: e.target.value })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(user)
+    }
+
     return (
         <>
             <div className="flex min-h-screen md:min-h-[90vh] flex-1 flex-col px-6 lg:px-8 pt-6 bg-black text-white">
@@ -17,7 +28,7 @@ function SignUp(props) {
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" method="POST">
+                    <form className="space-y-6">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium leading-6">
                                 Name
@@ -29,6 +40,7 @@ function SignUp(props) {
                                     type="text"
                                     required
                                     className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    onChange={handleChange}
                                 />
                             </div>
                         </div>
@@ -44,6 +56,7 @@ function SignUp(props) {
                                     autoComplete="email"
                                     required
                                     className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    onChange={handleChange}
                                 />
                             </div>
                         </div>
@@ -62,6 +75,7 @@ function SignUp(props) {
                                     autoComplete="current-password"
                                     required
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
+                                    onChange={handleChange}
                                 />
                             </div>
                         </div>
@@ -79,6 +93,7 @@ function SignUp(props) {
                                     autoComplete="current-password"
                                     required
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
+                                    onChange={handleChange}
                                 />
                             </div>
                         </div>
@@ -86,7 +101,7 @@ function SignUp(props) {
                             <Link to="/signin">Have an account? <span className="underline">Sign in</span></Link>
                         </div>
                         <div>
-                            <button
+                            <button onClick={(values => handleSubmit(values))}
                                 type="submit"
                                 className="flex w-full justify-center rounded-md hover:bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm hover:text-white border border-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 uppercase tracking-widest"
                             >
