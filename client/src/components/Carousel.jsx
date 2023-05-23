@@ -13,7 +13,7 @@ function Carousel(props) {
             loop={true}
             breakpoints={{
                 768: {
-                    slidesPerView: 2,
+                    slidesPerView: 3,
                     spaceBetween: 40,
                 },
             }}
