@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import axios from "axios"
 
 function SignUp(props) {
+    const navigate = useNavigate()
 
     const [user, setUser] = useState({ "name": "", "email": "", "password": "", "cpassword": "" })
     useEffect(() => {
@@ -13,9 +15,26 @@ function SignUp(props) {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(user)
+        // console.log(user)
+        try {
+            const newUser = {"username":user.name,"email": user.email, "password": user.password }
+            let data = await axios.post("http://127.0.0.1:8000/auth/register/", newUser)
+            data = data.data
+            // console.log(data)
+            localStorage.setItem("token", data.token)
+            if (data.success) {
+                // alert("User created successfully")
+                
+                navigate("/")
+            }
+        }
+        catch (err) {
+            console.log(err)
+            // alert("Error creating user")
+        }
+        
     }
 
     return (
@@ -31,7 +50,7 @@ function SignUp(props) {
                     <form className="space-y-6">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium leading-6">
-                                Name
+                                Username
                             </label>
                             <div className="mt-2">
                                 <input

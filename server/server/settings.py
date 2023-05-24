@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app.apps.AppConfig',
     'authentication.apps.AuthenticationConfig',
     'rest_framework',
+    'corsheaders',
     'knox'
 ]
 
@@ -51,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 REST_FRAMEWORK = {
@@ -58,8 +61,13 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.BasicAuthentication',
         # 'rest_framework.authentication.SessionAuthentication',
         'knox.auth.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
     ]
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'server.urls'
 

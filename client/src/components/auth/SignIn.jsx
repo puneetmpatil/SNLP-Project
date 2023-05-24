@@ -1,20 +1,35 @@
 import { useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { ErrorMessage, Field, Form, Formik } from "formik"
 import SignInSchema from "../../schema/SignIn"
+import axios from "axios"
 
 function SignIn(props) {
+
+    const navigate = useNavigate()
     useEffect(() => {
         document.title = props.title
     }, [])
 
-    const handleSubmit = (values) => {
-        console.log(values)
+    const handleSubmit = async (user) => {
+        try {
+            let data = await axios.post("http://localhost:8000/auth/login/", user)
+            data = data.data
+            localStorage.setItem("token", data.token)
+            if (data) {
+                // alert("User created successfully")
+                navigate("/")
+            }
+        }
+        catch (err) {
+            console.log(err)
+            // alert("Error creating user")
+        }
     }
 
     return (
         <>
-            <Formik initialValues={{ email: "", password: "" }}
+            <Formik initialValues={{ username: "", password: "" }}
                 validationSchema={SignInSchema}
                 onSubmit={(values) => {
                     handleSubmit(values)
@@ -29,20 +44,19 @@ function SignIn(props) {
                         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                             <Form className="space-y-6">
                                 <div>
-                                    <label htmlFor="email" className="block text-sm font-medium leading-6">
-                                        Email address
+                                    <label htmlFor="username" className="block text-sm font-medium leading-6">
+                                        Username
                                     </label>
                                     <div className="mt-2">
                                         <Field
-                                            id="email"
-                                            name="email"
-                                            type="email"
-                                            autoComplete="email"
+                                            id="username"
+                                            name="username"
+                                            type="text"
                                             required
                                             className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         />
                                     </div>
-                                    <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
+                                    <ErrorMessage name="username" component="div" className="text-red-500 text-sm" />
                                 </div>
 
                                 <div>
