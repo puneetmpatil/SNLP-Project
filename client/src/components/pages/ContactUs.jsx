@@ -86,8 +86,8 @@ function ContactUs(props) {
         }
     }
     return (
-        <div>
-            <div className="container my-24 px-6 mx-auto">
+        <div className='bg-black md:min-h-[90vh]'>
+            <div className="container py-24 px-6 mx-auto">
                 <section className="mb-32 text-gray-800">
                     <div className="flex flex-wrap">
                         <div className="grow-0 shrink-0 basis-auto mb-6 md:mb-0 w-full md:w-1/2 px-3 lg:px-6">
