@@ -4,6 +4,7 @@ import ContactUs from './components/pages/ContactUs'
 import About from './components/pages/About'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
+import ChatwithUs from './components/pages/ChatwithUs';
 import "./index.css"
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Route exact path="/signup" element={<SignUp title="Sign Up" />} />
       <Route exact path="/contact" element={<ContactUs title="Contact Us" />} />
       <Route exact path="/about" element={<About title="About" />} />
+      <Route exact path="/chat" element={<ChatwithUs title="Chat" />} />
     </Routes>
   )
 }

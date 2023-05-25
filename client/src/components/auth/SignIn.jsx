@@ -15,6 +15,7 @@ function SignIn(props) {
         try {
             let data = await axios.post("http://localhost:8000/auth/login/", user)
             data = data.data
+            // print(data)
             localStorage.setItem("token", data.token)
             if (data) {
                 // alert("User created successfully")

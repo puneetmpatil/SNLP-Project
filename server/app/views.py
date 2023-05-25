@@ -3,13 +3,20 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Chat
 from .serializers import ChatSerializer
+from knox.auth import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 @api_view(['GET'])
 def getChats(request):
-    chats = Chat.objects.all().order_by('-timestamp')
+    token = request.headers['Authorization'].split(' ')[1]
+    user = request.user
+    user_id = user.id
+    chats = Chat.objects.filter(user_id=user_id).order_by('-timestamp')
     serializer = ChatSerializer(chats, many=True)
-    return Response(serializer.data)
+    # print(serializer.data)
+    data = [{'request': chat['message'], 'response': chat['response']} for chat in serializer.data]
+    return Response(data)
 
 @api_view(['POST'])
 def postChat(request):
