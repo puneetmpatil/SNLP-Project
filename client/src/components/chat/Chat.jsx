@@ -2,7 +2,6 @@ import React from 'react'
 
 function Chat(props) {
     const {chat} = props
-    console.log(chat)
     return (
         <div className='flex flex-col text-sm font-serif'>
             <div className='flex justify-end'>

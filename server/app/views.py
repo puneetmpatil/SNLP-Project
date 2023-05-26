@@ -20,7 +20,14 @@ def getChats(request):
 
 @api_view(['POST'])
 def postChat(request):
-    serializer = ChatSerializer(data=request.data)
+    request = request.data['request']
+    response = getResponse(request)
+    data = {
+        'user': request.user.id,
+        'message': request,
+        'response': response
+    }
+    serializer = ChatSerializer(data=data)
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
