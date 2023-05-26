@@ -34,6 +34,6 @@ def postChat(request):
 
 @api_view(['DELETE'])
 def deleteChat(request):
-    chat = Chat.objects.get(id=request.data['id'])
-    chat.delete()
-    return Response('Chat deleted successfully!')
+    user_id = request.user.id
+    Chat.objects.filter(user_id=user_id).delete()
+    return Response('All chats deleted successfully!')

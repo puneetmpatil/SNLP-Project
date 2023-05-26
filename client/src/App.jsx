@@ -6,7 +6,16 @@ import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import ChatwithUs from './components/pages/ChatwithUs';
 import "./index.css"
+import { useEffect,useState } from 'react';
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    // console.log(token)
+    if (token) {
+      setIsAuthenticated(true);
+    }
+  }, [])
 
   return (
 
@@ -16,7 +25,7 @@ function App() {
       <Route exact path="/signup" element={<SignUp title="Sign Up" />} />
       <Route exact path="/contact" element={<ContactUs title="Contact Us" />} />
       <Route exact path="/about" element={<About title="About" />} />
-      <Route exact path="/chat" element={<ChatwithUs title="Chat" />} />
+      {isAuthenticated ? <Route exact path="/chat" element={<ChatwithUs title="Chat" />} /> : <Route exact path="/chat" element={<SignIn title="Log in" />} />}
     </Routes>
   )
 }
