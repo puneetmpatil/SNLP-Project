@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Chat from '../chat/Chat'
 import axios from 'axios'
 
@@ -19,7 +19,18 @@ function ChatwithUs() {
                     'Authorization': `Token ${localStorage.getItem('token')}`
                 }
             })
-            console.log(res.data)
+            // console.log(res.data)
+            const d = res.data
+            const newChat = {
+                id: d.id,
+                request:d.message,
+                response: d.response,
+            }
+            setChats([...chats], newChat)
+            getChat()
+            setPrompt('')
+            console.log(chats)
+        
         } catch (error) {
             console.log(error)
         }
@@ -30,7 +41,7 @@ function ChatwithUs() {
         e.preventDefault()
         
         // Put Modal inorder to confirm the deletion
-        confirm = confirm('Are you sure you want to delete all chats?')
+        let confirm = window.confirm('Are you sure you want to delete all chats?')
         if(!confirm){
             return
         }
@@ -43,6 +54,7 @@ function ChatwithUs() {
                 }
             })
             console.log(res.data)
+            setChats([])
         }
         catch(error){
             console.log(error)
@@ -53,7 +65,7 @@ function ChatwithUs() {
     useEffect(() => {
         document.title = "Chat With Us"
         getChat()
-    }, [handleSubmit, deleteChats])
+    }, [])
 
     const getChat = async () => {
         try {
@@ -79,7 +91,7 @@ function ChatwithUs() {
             <div className='w-4/5 mx-auto py-16 md:w-2/3'>
                 <h2 className='text-3xl text-center font-extrabold tracking-wider mb-8 uppercase'>Chat with Us</h2>
                 <p className='text-sm tracking-wider py-4'>We are here to help you. You can chat with us and ask your queries.</p>
-                <section className='bg-gray-300 min-h-[60vh] text-black'>
+                <section className='bg-gray-300 h-[60vh] overflow-auto text-black pb-4'>
                     {chats.length != 0 ? chats.map((chat, id) => (
                         <Chat key={id} chat={chat} />
                     )) : <div className='text-center text-2xl flex items-center justify-center h-[60vh]'>No chats to display</div>}

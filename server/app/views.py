@@ -5,6 +5,7 @@ from .models import Chat
 from .serializers import ChatSerializer
 from knox.auth import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+from .utility import getResponse
 
 # Create your views here.
 @api_view(['GET'])
@@ -20,10 +21,14 @@ def getChats(request):
 
 @api_view(['POST'])
 def postChat(request):
+    token = request.headers['Authorization'].split(' ')[1]
+    user = request.user
+    user_id = user.id
     request = request.data['request']
     response = getResponse(request)
+    # print(response)
     data = {
-        'user': request.user.id,
+        'user': user_id,
         'message': request,
         'response': response
     }
