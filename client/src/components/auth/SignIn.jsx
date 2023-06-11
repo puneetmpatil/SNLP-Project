@@ -23,8 +23,8 @@ function SignIn(props) {
             }
         }
         catch (err) {
+            alert("Invalid credentials")
             console.log(err)
-            // alert("Error creating user")
         }
     }
 

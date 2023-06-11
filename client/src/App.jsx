@@ -27,7 +27,7 @@ function App() {
       <Route exact path="/contact" element={<ContactUs title="Contact Us" />} />
       <Route exact path="/about" element={<About title="About" />} />
       {isAuthenticated ? <Route exact path="/chat" element={<ChatwithUs title="Chat" />} /> : <Route exact path="/chat" element={<SignIn title="Log in" />} />}
-      {isAuthenticated ? <Route exact path="/sentiment-analysis" element={<SentimentAnalysis title="Sentiment Analysis" />} /> : <Route exact path="/chat" element={<SignIn title="Log in" />} />}
+      {isAuthenticated ? <Route exact path="/sentiment-analysis" element={<SentimentAnalysis title="Sentiment Analysis" />} /> : <Route exact path="/sentiment-analysis" element={<SignIn title="Log in" />} />}
     </Routes>
   )
 }

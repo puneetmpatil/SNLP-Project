@@ -32,7 +32,7 @@ function SignUp(props) {
         }
         catch (err) {
             console.log(err)
-            // alert("Error creating user")
+            alert("Error creating user")
         }
         
     }
