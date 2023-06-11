@@ -6,7 +6,8 @@ import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import ChatwithUs from './components/pages/ChatwithUs';
 import "./index.css"
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
+import SentimentAnalysis from './components/pages/SentimentAnalysis';
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   useEffect(() => {
@@ -21,11 +22,12 @@ function App() {
 
     <Routes>
       <Route exact path="/" element={<Home title="Home" />} />
-      <Route exact path="/signin" element={<SignIn title="Log in" />} />
-      <Route exact path="/signup" element={<SignUp title="Sign Up" />} />
+      {!isAuthenticated && <Route exact path="/signin" element={<SignIn title="Log in" />} />}
+      {!isAuthenticated && <Route exact path="/signup" element={<SignUp title="Sign Up" />} />}
       <Route exact path="/contact" element={<ContactUs title="Contact Us" />} />
       <Route exact path="/about" element={<About title="About" />} />
       {isAuthenticated ? <Route exact path="/chat" element={<ChatwithUs title="Chat" />} /> : <Route exact path="/chat" element={<SignIn title="Log in" />} />}
+      {isAuthenticated ? <Route exact path="/sentiment-analysis" element={<SentimentAnalysis title="Sentiment Analysis" />} /> : <Route exact path="/chat" element={<SignIn title="Log in" />} />}
     </Routes>
   )
 }

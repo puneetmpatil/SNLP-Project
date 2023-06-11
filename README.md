@@ -46,9 +46,9 @@ Besides physical health, mental health conditions have become a significant conc
 <li>Open another terminal and navigate to the backend directory<br>
    <code>cd ../server</code></li>
 <li>Create and activate a virtual environment (optional but recommended)<br>
-   <code>python -m venv env</code><br><code>
-source env/bin/activate
-</code></li>
+   <code>python -m venv env</code><br>
+   <code>source env/bin/activate</code>
+</li>
 <li>Install backend dependencies<br>
    <code>pip install -r requirements.txt
 </code></li>

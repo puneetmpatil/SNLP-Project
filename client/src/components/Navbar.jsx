@@ -45,6 +45,9 @@ function Navbar() {
                                     <Link className="lg:px-5 py-2 block hover:text-white font-semibold" to="/chat">Chat</Link>
                                 </li>
                                 <li>
+                                    <Link className="lg:px-5 py-2 block hover:text-white font-semibold" to="/sentiment-analysis">Analysis</Link>
+                                </li>
+                                <li>
                                     <Link className="lg:px-3 py-2 block bg-blue-700 text-white rounded-xl font-semibold" onClick={handleClick}>Logout</Link>
                                 </li>
                             </>
