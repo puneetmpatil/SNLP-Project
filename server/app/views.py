@@ -6,6 +6,7 @@ from .serializers import ChatSerializer
 from knox.auth import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from .utility import getResponse
+from .sentiment_analysis import calculate_sentiment_score
 
 # Create your views here.
 @api_view(['GET'])
@@ -42,3 +43,11 @@ def deleteChat(request):
     user_id = request.user.id
     Chat.objects.filter(user_id=user_id).delete()
     return Response('All chats deleted successfully!')
+
+@api_view(['POST'])
+def sentimentAnalysis(request):
+    text = request.data['text']
+    
+    result = calculate_sentiment_score(text);
+
+    return Response(result)
