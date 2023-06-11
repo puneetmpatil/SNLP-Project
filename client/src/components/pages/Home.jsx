@@ -10,9 +10,9 @@ function Home(props) {
         <div className="bg-black min-h-[90vh]">
             <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 mb-8">
                 <div className="w-5/6 mx-auto">
-                    <h2 className="text-4xl text-center font-bold text-white mb-8 uppercase">Welcome to our Mental Health Chatbot</h2>
+                    <h2 className="text-4xl text-center font-bold text-white mb-8 uppercase">Welcome to MindEase Chatbot</h2>
                     <p className="text-white mb-8">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium iste maiores alias eius, beatae, aliquid nemo iure laborum atque quisquam qui illo aspernatur expedita nam.
+                        Get the support you need for better mental health. Our chatbot provides a safe space to discuss your thoughts and emotions. We offer non-judgmental conversations, personalized recommendations, and valuable resources. Start your journey to well-being today.
                     </p>
                     <div className="flex justify-center">
                         <button className="px-8 py-4 text-white border hover:bg-white hover:text-black rounded-lg font-bold uppercase hover:scale-110">

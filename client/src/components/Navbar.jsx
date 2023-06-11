@@ -24,7 +24,7 @@ function Navbar() {
     return (
         <header className="bg-black">
             <div className="flex items-center justify-between xl:max-w-7xl xl:mx-auto max-w-full px-[8%] flex-wrap w-full">
-                <span className='flex items-center'><img src={logo} width={76} height={76} alt="logo" />
+                <span className='flex items-center'><img src={logo} width={60} height={60} alt="logo" className="rounded-full mt-[0.8rem]"/>
                 <h1 className='text-2xl font-bold sm:text-3xl'>MeetMeBot</h1></span>
                 {/* <FiMenu className="lg:hidden block h-3 w-6 cursor-pointer" onClick={() => setOpen(!open)} /> */}
                 <img src={close} className="lg:hidden block h-3 w-6 cursor-pointer" onClick={() => setOpen(!open)}  />
