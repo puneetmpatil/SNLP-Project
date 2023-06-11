@@ -19,7 +19,7 @@ Besides physical health, mental health conditions have become a significant conc
 
 ### Features ✨
 
-- Sentiment Analysis 📊: The website offers sentiment analysis functionality to analyze user input and determine the sentiment score. 📝 This feature helps in understanding the user's emotional state and providing appropriate support. 🌟
+- Sentiment Analysis 📊: The website offers sentiment analysis functionality using Hugging Face Models to analyze user input and determine the sentiment score. 📝 This feature helps in understanding the user's emotional state and providing appropriate support. 🌟
 
 - Mental Health Chatbot 🤖💬: The chatbot provides users with a conversational interface to discuss their mental health concerns and seek guidance. 🗣️ It offers pre-defined responses based on common mental health questions and concerns. 💡 The chatbot aims to provide immediate support and connect users to relevant resources. 🤝
 
@@ -30,6 +30,8 @@ Besides physical health, mental health conditions have become a significant conc
 - Frontend: React ⚛️
 - Backend: Django REST Framework 🐍🔥
 - Database: SQLite3 🗃️
+- NLP for Chatbot 🤖🧠
+- Hugging Face Model for Sentiment Analysis 🤗📊
 
 ### Installation 🚀
 

@@ -11,7 +11,7 @@ function About(props) {
     }, [])
 
     return (
-        <div className="bg-black text-white py-9">
+        <div className="bg-black text-white py-[35.5px]">
             <div className="bg-black text-white">
                 <div className="justify-center flex mx-auto w-4/5 md:w-1/3">
                     <div className="mb-3">
